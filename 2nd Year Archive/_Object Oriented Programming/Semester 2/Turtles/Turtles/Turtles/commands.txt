@@ -1,0 +1,10 @@
+Goto 0 0
+Forward 1
+Rotate 1
+Repeat 180
+Repeat 360
+Forward 1
+Rotate 1
+RepeatEnd
+Rotate 2
+RepeatEnd

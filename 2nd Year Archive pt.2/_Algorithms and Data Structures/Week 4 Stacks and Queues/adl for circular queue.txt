@@ -1,0 +1,50 @@
+procedure create()
+front ← 0
+rear ← 0
+end
+
+procedure ADDQ(IN item, INOUT QUEUE[], IN n, INOUT INOUT rear)
+//insert item in the circular queue stored in QUEUE(0:n - 1);
+rear points to the last item and front is one position
+counterclockwise from the first item in QUEUE//
+if (front = ((rear+1) mod n)) then CALL queueFull()
+else
+rear (rear + l) mod n //advance rear clockwise//
+QUEUE(rear) item //insert new item//
+endif
+end
+
+procedure DELETEQ(OUT item, INOUT QUEUE[], n, INOUT front, rear)
+//removes the front element of the queue QUEUE(0:n - 1)//
+if front = rear then call queueEmpty()
+else
+front (front + 1)mod n //advance front clockwise//
+item QUEUE(front) //set item to front of queue//
+endif
+end DELETEQ
+
+function getFront(IN front, IN rear, IN QUEUE[])
+if isEmpty(front, rear) = true then CALL queueEMPTY()
+else
+return QUEUE(front)
+endif
+end
+
+function getRear(In rear, IN front, IN QUEUE[])
+if isEmpty(front, rear) = true then CALL queueEMPTY()
+else
+return QUEUE(rear)
+endif
+end
+
+function isEmpty(IN front, IN rear, IN QUEUE[])
+if front = rear then return true
+else return false
+endif
+end
+
+function isFull(IN rear, IN max)
+if rear = max then return true
+else return false
+endif
+end

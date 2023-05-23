@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Canvas</title>
+    <script src="/js/opencv.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <canvas id="canvasInput" width="300" height="600"></canvas>
+    <canvas id="canvasOutput" width="300" height="600"></canvas>
+    <button onclick="draw();">Draw</button>
+    <div id="sliders">
+        <label for="dp">dp</label>
+        <input type="range" min="" max="40" step="1" name="dp" id="dp">
+        <label for="minDist">minDist1</label>
+        <input type="range" min="0" max="25" step="1" name="minDist" id="minDist">
+        <label for="param1">param1</label>
+        <input type="range" min="1" max="300" step="1" name="param1" id="param1">
+        <label for="param2">param2</label>
+        <input type="range" min="1" max="300" step="1" name="param2" id="param2">
+        <label for="minRadius">minRadius</label>
+        <input type="range" min="5" max="30" step="1" name="minRadius" id="minRadius">
+        <label for="maxRadius">maxRadius</label>
+        <input type="range" min="5" max="30" step="1" name="maxRadius" id="maxRadius">
+    </div>
+    <script>
+        let img = new Image();
+        img.src = '/media/topdown1.png';
+        img.onload = function() {
+            let canvas = document.getElementById('canvasInput');
+            let ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+        }
+        
+        let dp = 2;
+        let minDist = 10;
+        let param1 = 50;
+        let param2 = 40;
+        let minRadius = 23;
+        let maxRadius = 27;
+        
+        let sliders = document.getElementById('sliders');
+        sliders.children[1].value = dp;
+        sliders.children[3].value = minDist;
+        sliders.children[5].value = param1;
+        sliders.children[7].value = param2;
+        sliders.children[9].value = minRadius;
+        sliders.children[11].value = maxRadius;
+
+        sliders.children[1].oninput = function () {
+            dp = this.value;
+            sliders.children[1].innerHTML = "dp: " + dp;
+            draw();
+        }
+        sliders.children[3].oninput = function () {
+            minDist = this.value;
+            sliders.children[3].innerHTML = "minDist: " + minDist;
+            draw();
+        }
+        sliders.children[5].oninput = function () {
+            param1 = this.value;
+            sliders.children[5].innerHTML = "param1: " + param1;
+            draw();
+        }
+        sliders.children[7].oninput = function () {
+            param2 = this.value;
+            sliders.children[7].innerHTML = "param2: " + param2;
+            draw();
+        }
+        sliders.children[9].oninput = function () {
+            minRadius = this.value;
+            sliders.children[9].innerHTML = "minRadius: " + minRadius;
+            draw();
+        }
+        sliders.children[11].oninput = function () {
+            maxRadius = this.value;
+            sliders.children[11].innerHTML = "maxRadius: " + maxRadius;
+            draw();
+        }
+
+        function draw() {
+            let src = cv.imread('canvasInput');
+            let dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
+            let circles = new cv.Mat();
+            let color = new cv.Scalar(255, 0, 0);
+            cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+
+            cv.HoughCircles(src, circles, cv.HOUGH_GRADIENT, parseFloat(dp), parseFloat(minDist), parseFloat(param1), parseFloat(param2), parseFloat(minRadius), parseFloat(maxRadius));
+            for (let i = 0; i < circles.cols; ++i) {
+                let x = circles.data32F[i * 3];
+                let y = circles.data32F[i * 3 + 1];
+                let radius = circles.data32F[i * 3 + 2];
+                let center = new cv.Point(x, y);
+                cv.circle(dst, center, radius, color);
+            }
+            
+            cv.imshow('canvasOutput', dst);
+            src.delete();
+            dst.delete();
+            circles.delete();
+        }
+    </script>
+</body>
+
+</html>

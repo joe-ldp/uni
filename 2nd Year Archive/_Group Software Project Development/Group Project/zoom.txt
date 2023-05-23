@@ -1,0 +1,7 @@
+Date property – date property was acquired
+Weekly form name-staff present-residents
+Room rate=total rent/num of rooms (per week)
+Support worker=allocated helper (list of workers)
+Moveon=positive/abandonment/etc when the resident left 
+ReferralOutcome=housed/not housed
+Get rid of outcome1-12

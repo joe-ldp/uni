@@ -1,0 +1,55 @@
+#banner
+{
+    background-image: url("../media/skyline.jpg");
+    background-size: 100%;
+    background-position-y: 50%;
+
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+}
+
+#banner h1 a, #banner li a
+{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#banner li a:hover
+{
+    font-weight:bold;
+    color: #000000;
+}
+
+#nav
+{
+    line-height: 45px;
+}
+
+#nav ul li
+{
+    display:inline;
+    color: #aaaaaa;
+}
+
+#nav ul li a
+{
+    padding-left:10px;
+    padding-right:10px;
+}
+
+#nav ul
+{
+    padding-left:0;
+    padding-right: 20px;
+    list-style:none;
+}
+
+#title
+{
+    padding-left: 20px;
+}

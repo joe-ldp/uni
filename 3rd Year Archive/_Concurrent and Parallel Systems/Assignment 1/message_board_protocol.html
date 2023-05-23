@@ -1,0 +1,140 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Message Board Protocol</h1>
+
+<p>This document describes the protocol governing the communication between
+the message board server and clients for the CAPS assignment. The document
+details the general format of exchanges dictated by the protocol. The format
+of individual requests and responses is specified by regular expressions
+and examples.</p>
+
+<h3>Request/Response format</h3>
+
+<ul>
+<li><p>The server understands five types of requests: POST, LIST, COUNT, READ and EXIT.
+These requests can be issued in any order.
+All requests occupy a single line of text.</p></li>
+<li><p>The server responds to each request with a single line of text.
+The exact response format is specific to the type of request.
+The server responds to an invalid request with a blank line.</p></li>
+</ul>
+
+<h3>POST request and response</h3>
+
+<ul>
+<li><p>A <strong>POST</strong> request posts a message to a topic.
+The format is specified as a regular expression, plus examples.</p>
+
+<p><code>^POST(@[^@#]*)#(.+)$</code></p>
+
+<p><code>POST@Solar system#The dark side of the @moon is #dark. <br>
+POST@#x <br>
+POST@night_sky#cloudy! <br>
+POST@Solar system#Mercury, Venus, Earth, Mars, Jupiter, Saturn, Neptune, Uranus</code></p>
+
+<li><p>The regular expression specifies that the request starts with the string
+<code>POST</code> followed by a <em>topicId</em> (a string starting with <code>@</code> and followed
+by any character other than <code>@</code> and <code>#</code>). The topicId is separated by a
+<code>#</code> from the actual <em>message</em> (a non-empty string) which extends
+to the end of the line. Both the topicId and the message have a maximum length of 140 characters.</p></li>
+
+<li><p>The first example makes clear that messages can contain the characters <code>@</code>
+and <code>#</code> and that topicIds can contain spaces. The second example shows the
+shortest possible POST request, demonstrating that the single character <code>@</code>
+is a valid topicId and that a message must contain at least one character
+(here represented by <code>x</code>; a space would also be legal).</p></li>
+
+<li><p>The server appends the message to the topic identified by the topicId
+and responds with a <em>postId</em> (a non-negative integer in decimal
+representation) numbering the post on the topic.
+Long topicIds and messages are truncated after 140 characters.</p></li>
+
+<li><p>If the topic does not exist, it is created and the message becomes its
+first post (with postId 0).</p></li>
+</ul>
+
+<h3>LIST request and response</h3>
+
+<ul>
+<li><p>A <strong>LIST</strong> request lists all topicIds.
+The request consists of the sole word <code>LIST</code> as specified by the
+regular expression below.</p>
+
+<p><code>^LIST$</code></p></li>
+<li><p>The server responds to LIST requests with a single line listing all topicIds,
+separated by the <code>#</code> character.
+The order of topicIds is unspecified.
+As an example, a server that had only received the above POST requests
+might respond to a LIST request like so.</p>
+
+<p><code>@Solar system#@#@night_sky</code></p></li>
+</ul>
+
+<h3>COUNT request and response</h3>
+
+<ul>
+<li><p>A <strong>COUNT</strong> request counts the number of posts on a given topic,
+identified by topicId.
+The format is specified as a regular expression, plus examples.</p>
+
+<p><code>^COUNT(@[^@#]*)$</code></p>
+
+<p><code>COUNT@Solar system <br>
+COUNT@solar_system</code></p></li>
+
+<li><p>The topicId can be 140 character maxumum. If a longer topicId is specified,
+this is truncated after 140 characters</p></li>
+
+<li><p>The server responds to COUNT requests with the number of posts on the
+topic, or with 0 if the topic does not exist.
+For example, a server that had only received the above POST requests
+would respond to the above COUNT requests with the numbers 2 and 0,
+respectively.</p></li>
+</ul>
+
+<h3>READ request and response</h3>
+
+<ul>
+<li><p>A <strong>READ</strong> request looks up a topic (identified by topicId) and
+returns the requested message (identfied by postId).
+The format is specified as a regular expression, plus examples.</p>
+
+<p><code>^READ(@[^@#]*)#([0-9]+)$</code></p>
+
+<p><code>READ@#0 <br>
+READ@Solar system#1 <br>
+READ@night_sky#2 <br>
+READ@solar_system#0</code></p></li>
+<li><p>The server responds to a READ request with the message (which is a
+non-empty string without line-break characters, thanks to the restrictions
+imposed on POST requests).</p></li>
+
+<li><p>The topicId can be 140 character maxumum. If a longer topicId is specified,
+this is truncated after 140 characters</p></li>
+
+<li><p>A READ request is invalid if the topic does not (yet) exist or if the
+postId refers to a post beyond the current number of posts on the topic.
+In these cases the server responds with a blank line.</p></li>
+
+<li><p>To illustrate, given a server that had only received the above POST requests,
+the first two of the above READ requests would result in the following
+responses.</p></li>
+
+<p><code>x <br>
+Mercury, Venus, Earth, Mars, Jupiter, Saturn, Neptune, Uranus</code></p>
+
+<p>The remaining two READ requests would generate blank line responses.</p></li>
+</ul>
+
+<h3>EXIT request and response</h3>
+
+<ul>
+<li><p>An <strong>EXIT</strong> request terminates the server.
+The request consists of the sole word <code>EXIT</code> as specified by the
+regular expression below.</p>
+
+<p><code>^EXIT$</code></p></li>
+<li><p>The server responds to the EXIT request with a single line and the
+string <code>TERMINATING</code>.
+After this command the server will be terminating and will not respond to any
+more requests from any client.</li>
+</ul>
+</body></html>

@@ -1,0 +1,10 @@
+program multiplyTwoNumbers:
+    
+    global  number1, time
+    
+    set number1 to 4
+    while ( time <= number1) do
+        set time to (time + 1)
+    endwhile
+
+endprogram

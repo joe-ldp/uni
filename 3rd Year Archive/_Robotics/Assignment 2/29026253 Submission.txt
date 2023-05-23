@@ -1,0 +1,6 @@
+GIT Repo: https://github.com/joe-ldp/robotics-2
+
+Video link: https://photos.app.goo.gl/94xnAkczb3o73Hao9
+
+
+I believe one or more of my servos has partially stopped working as discussed in the video.

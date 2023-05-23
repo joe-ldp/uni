@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Therac_4.html -->
+<HTML><HEAD><TITLE>Therac-25 - IV</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY>
+<H1>An Investigation of the Therac-25 Accidents -- Part IV</H1>
+<H3>Nancy Leveson, University of Washington<BR>Clark S. Turner, University of 
+California, Irvine</H3>
+<P>Reprinted with permission, <I>IEEE Computer</I>, Vol. 26, No. 7, July 1993, 
+pp. 18-41.
+<P>
+<P><I>Manufacturer, government, and user response.</I> On February 3, 1987, 
+after interaction with the FDA and others, including the user group, AECL 
+announced to its customers
+<P>
+<UL>
+  <LI>a new software release to correct both the Tyler and Yakima software 
+  problems,
+  <P></P>
+  <LI>a hardware single-pulse shutdown circuit,
+  <P></P>
+  <LI>a turntable potentiometer to independently monitor turntable position, and
+  <P></P>
+  <LI>a hardware turntable interlock circuit.</LI></UL>
+<P>The second item, a hardware single-pulse shutdown circuit, essentially acts 
+as a hardware interlock to prevent overdosing by detecting an unsafe level of 
+radiation and halting beam output after one pulse of high energy and current. 
+This provides an independent safety mechanism to protect against a wide range of 
+potential hardware failures and software errors. The turntable potentiometer was 
+the safety device recommended by several groups, including the CRPB, after the 
+Hamilton accident.
+<P>After the second Yakima accident, the FDA became concerned that the use of 
+the Therac-25 during the CAP process, even with AECL's interim operating 
+instructions, involved too much risk to patients. The FDA concluded that the 
+accidents had demonstrated that the software alone cannot be replied upon to 
+assure safe operation of the machine. In a February 18, 1987 internal FDA 
+memorandum, the director of the Division of Radiological Products wrote the 
+following:
+<P>
+<BLOCKQUOTE>It is impossible for CDRH to find all potential failure modes and 
+  conditions of the software. AECL has indicated the "simple software fix" will 
+  correct the turntable position problem displayed at Yakima. We have not yet 
+  had the opportunity to evaluate that modification. Even if it does, based upon 
+  past history, I am not convinced that there are not other software glitches 
+  that could result in serious injury.
+  <P>For example, we are aware that AECL issued a user's bulletin January 21 
+  reminding users of the proper procedure to follow if editing of prescription 
+  parameter is desired after entering the "B" (beam on) code but before the CR 
+  [carriage return] is pressed. It seems that the normal edit keys (down arrow, 
+  right arrow, or line feed) will be interpreted as a CR and initiate exposure. 
+  One must use either the backspace or left arrow key to edit.
+  <P>We are also aware that if the dose entered into the prescription tables is 
+  below some preset value, the system will default to a phantom table value 
+  unbeknownst to the operator. This problem is supposedly being addressed in 
+  proposed interim revision 7A, although we are unaware of the details.
+  <P>We are in the position of saying that the proposed CAP can reasonably be 
+  expected to correct the deficiencies for which they were developed (Tyler). We 
+  cannot say that we are [reasonably] confident about the safety of the entire 
+  system to prevent or minimize exposure from other fault 
+conditions.</P></BLOCKQUOTE>
+<P>On February 6, 1987, Miller of the FDA called Pavel Dvorak of Canada's Health 
+and Welfare to advise him that the FDA would recommend all Therac-25s be shut 
+down until permanent modifications could be made. According to Miller's notes on 
+the phone call, Dvorak agreed and indicated that they would coordinate their 
+actions with the FDA.
+<P>On February 10, 1987, the FDA gave a Notice of Adverse Findings to AECL 
+declaring the Therac-25 to be defective under US law. In part, the letter to 
+AECL reads:
+<P>
+<BLOCKQUOTE>In January 1987, CDRH was advised of another accidental radiation 
+  occurrence in Yakima, which was attributed to a second software defect related 
+  to the "Set" command. In addition, the CDRH has become aware of at least two 
+  other software features that provide potential for unnecessary or inadvertent 
+  patient exposure. One of these is related to the method of editing the 
+  prescription after the "B" command is entered and the other is the calling of 
+  phantom tables when low doses are prescribed.
+  <P>Further review of the circumstances surrounding the accidental radiation 
+  occurrences and the potential for other such incidents has led us to conclude 
+  that in addition to the items in your proposed corrective action plan, 
+  hardware interlocking of the turntable to insure its proper position prior to 
+  beam activation appears to be necessary to enhance system safety and to 
+  correct the Therac-25 defect. Therefore, the corrective action plan as 
+  currently proposed is insufficient and must be amended to include turntable 
+  interlocking and corrections for the three software problems mentioned above.
+  <P>Without these corrections, CDRH has concluded that the consequences of the 
+  defects represents a significant potential risk of serious injury even if the 
+  Therac-25 is operated in accordance with your interim operating instructions. 
+  CDRH, therefore, requests that AECL immediately notify all purchasers and 
+  recommend that use of the device on patients for routine therapy be 
+  discontinued until such time that an amended corrective action plan approved 
+  by CDRH is fully completed. You may also advise purchasers that if the need 
+  for an individual patient treatment outweighs the potential risk, then extreme 
+  caution and strict adherence to operating safety procedures must be 
+  exercised.</P></BLOCKQUOTE>
+<P>At the same time, the Health Protection Branch of the Canadian government 
+instructed AECL to recommend to all users in Canada that they discontinue the 
+operation of the Therac-25 until "the company can complete an exhaustive 
+analysis of the design and operation of the safety systems employed for patient 
+and operator protection." AECL was told that the letter to the users should 
+include information on how the users can operate the equipment safely in the 
+event that they must continue with patient treatment. If AECL could not provide 
+information that would guarantee safe operation of the equipment, AECL was 
+requested to inform the users that they cannot operate the equipment safely. 
+AECL complied by letters dated February 20, 1987, to Therac-25 purchasers. This 
+recommendation to discontinue use of the Therac-25 was to last until August 
+1987.
+<P>On March 5, 1987, AECL issued CAP Revision 3, which was a CAP for both the 
+Tyler and Yakima accidents. It contained a few additions to the Revision 2 
+modifications, notably
+<P>
+<UL>
+  <LI>changes to the software to eliminate the behavior leading to the latest 
+  Yakima accident,
+  <P></P>
+  <LI>four additional software functional modifications to improve safety, and
+  <P></P>
+  <LI>a turntable position interlock in the software.</LI></UL>
+<P>In their response on April 9, the FDA noted that in the appendix under 
+"turntable position interlock circuit" the descriptions were wrong. AECL had 
+indicated "high" signals where "low" signals were called for and vice versa. The 
+FDA also questioned the reliability of the turntable potentiometer design and 
+asked whether the backspace key could still act as a carriage return in the edit 
+mode. They requested a detailed description of the software portion of the 
+single-pulse shutdown and a block diagram to demonstrate the PRF (pulse 
+repetition frequency) generator, modulator, and associated interlocks.
+<P>AECL responded on April 13 with an update on the Therac CAP status and a 
+schedule of the nine action items pressed by the users at a user group meeting 
+in March. This unique and highly productive meeting provided an unusual 
+opportunity to involve the users in the CAP evaluation process. It brought 
+together all concerned parties in one place so that they could decide on and 
+approve a course of action as quickly as possible. The attendees included 
+representatives from the manufacturer (AECL); all users, including their 
+technical and legal staffs; the US FDA; the Canadian BRMD; the Canadian Atomic 
+Energy Control Board; the Province of Ontario; and the Radiation Regulations 
+Committee of the Canadian Association of Physicists.
+<P>According to Symonds of the BRMD, this meeting was very important to the 
+resolution of the problems since the regulators, users, and the manufacturer 
+arrived at a consensus in one day.
+<P>At this second users meeting, the participants carefully reviewed all the six 
+known major Therac-25 accidents and discussed the elements of the CAP along with 
+possible additional modifications. They came up with a prioritized list of 
+modifications that they wanted included in the CAP and expressed concerns about 
+the lack of independent software evaluation and the lack of a hard-copy audit 
+trail to assist in diagnosing faults.
+<P>The AECL representative, who was the quality assurance manager, responded 
+that tests had been done on the CAP changes, but that the tests were not 
+documented, and independent evaluation of the software "might not be possible." 
+He claimed that two outside experts had reviewed the software, but he could not 
+provide their names. In response to user requests for a hard-copy audit trail 
+and access to source code, he explained that memory limitations would not permit 
+including an audit option, and source code would not be made available to users.
+<P>On May 1, AECL issued CAP Revision 4 as a result of the FDA comments and 
+users meeting input. The FDA response on May 26 approved the CAP subject to 
+submission of the final test plan results and an independent safety analysis, 
+distribution of the draft revised manual to customers, and completion of the CAP 
+by June 30, 1987. The FDA concluded by rating this a Class I recall: a recall in 
+which there is a reasonable probability that the use of or exposure to a 
+violative product will cause serious adverse health consequences or death.[5]
+<P>AECL sent more supporting documentation to the FDA on June 5, 1987, including 
+the CAP test plan, a draft operator's manual, and the draft of the new safety 
+analysis (described in the sidebar <A 
+href="http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Side_bar_5.html">Safety 
+analysis of the Therac-25</A>). The safety analysis revealed four potentially 
+hazardous subsystems that were not covered by CAP Revision 4:
+<P>
+<P>(1) electron-beam scanning,<BR>(2) electron-energy selection,<BR>(3) beam 
+shutoff, and<BR>(4) calibration and/or steering.<BR>
+<P>AECL planned a fifth revision of the CAP to include the testing and safety 
+analysis results.
+<P>Referring to the test plan at this, the final stage of the CAP process, an 
+FDA reviewer said
+<P>
+<BLOCKQUOTE>Amazingly, the test data presented to show that the software 
+  changes to handle the edit problems in the Therac-25 are appropriate prove the 
+  exact opposite result. A review of the data table in the test results 
+  indicates that the final beam type and energy (edit change) [have] no effect 
+  on the initial beam type and energy. I can only assume that either the fix is 
+  not right or the data was entered incorrectly. The manufacturer should be 
+  admonished for this error. Where is the QC [quality control] review for the 
+  test program? AECL must: (1) clarify this situation, (2) change the test 
+  protocol to prevent this type of error from occurring, and (3) set up 
+  appropriate QC control on data review.</BLOCKQUOTE>
+<P>A further FDA memo said the AECL quality assurance manager
+<P>
+<BLOCKQUOTE>. . . could not give an explanation and will check into the 
+  circumstances. He subsequently called back and verified that the technician 
+  completed the form incorrectly. Correct operation was witnessed by himself and 
+  others. They will repeat and send us the correct data sheet.</BLOCKQUOTE>
+<P>At the American Association of Physicists in Medicine meeting in July 1987, a 
+third user group meeting was held. The AECL representative gave the status of 
+CAP Revision 5. He explained that the FDA had given verbal approval and he 
+expected full implementation by the end of August 1987. He reviewed and 
+commented on the prioritized concerns of the last meeting. AECL had included in 
+the CAP three of the user-requested hardware changes. Changes to tape-load error 
+messages and check sums on the load data would wait until after the CAP was 
+done.
+<P>Two user-requested hardware modifications had not been included in the CAP. 
+One of these, a push-button energy and selection mode switch, AECL would work on 
+after completing the CAP, the quality assurance manager said. The other, a fixed 
+ion chamber with dose/pulse monitoring, was being installed at Yakima, had 
+already been installed by Halifax on their own, and would be an option for other 
+clinics. Software documentation was described as a lower priority task that 
+needed definition and would not be available to the FDA in any form for more 
+than a year.
+<P>On July 6, 1987, AECL sent a letter to all users to inform them of the FDA's 
+verbal approval of the CAP and delineated how AECL would proceed. On July 21, 
+1987, AECL issued the fifth and final CAP revision. The major features of the 
+final CAP are as follows:
+<P>
+<UL>
+  <LI>All interruptions related to the dosimetry system will go to a treatment 
+  suspend, not a treatment pause. Operators will not be allowed to restart the 
+  machine without reentering all parameters.
+  <P></P>
+  <LI>A software single-pulse shutdown will be added.
+  <P></P>
+  <LI>An independent hardware single-pulse shutdown will be added.
+  <P></P>
+  <LI>Monitoring logic for turntable position will be improved to ensure that 
+  the turntable is in one of the three legal positions.
+  <P></P>
+  <LI>A potentiometer will be added to the turntable. It will provide a visible 
+  signal of position that operators will use to monitor exact turntable 
+location.
+  <P></P>
+  <LI>Interlocking with the 270-degree bending magnet will be added to ensure 
+  that the target and beam flattener are in position if the X-ray mode is 
+  selected.
+  <P></P>
+  <LI>Beam on will be prevented if the turntable is in the field-light or an 
+  intermediate position.
+  <P></P>
+  <LI>Cryptic malfunction messages will be replaced with meaningful messages and 
+  highlighted dose-rate messages.
+  <P></P>
+  <LI>Editing keys will be limited to cursor up, backspace, and return. All 
+  other keys will be inoperative.
+  <P></P>
+  <LI>A motion-enable foot switch will be added, which the operator must hold 
+  closed during movement of certain parts of the machine to prevent unwanted 
+  motions when the operator is not in control (a type of "dead man's switch").
+  <P></P>
+  <LI>Twenty-three other changes to the software to improve its operation and 
+  reliability, including disabling of unused keys, changing the operation of the 
+  set and reset commands, preventing copying of the control program on site, 
+  changing the way various detected hardware faults are handled, eliminating 
+  errors in the software that were detected during the review process, adding 
+  several additional software interlocks, disallowing changing to the service 
+  mode while a treatment is in progress, and adding meaningful error messages.
+  <P></P>
+  <LI>The known software problems associated with the Tyler and Yakima accidents 
+  will be fixed.
+  <P></P>
+  <LI>The manuals will be fixed to reflect the changes.</LI></UL>
+<P>In a 1987 paper, Miller, director of the Division of Standards Enforcement, 
+CDRH, wrote about the lessons learned from the Therac-25 experiences.[6] The 
+first was the importance of safe versus "user-friendly" operator interfaces - in 
+other words, making the machine as easy as possible to use may conflict with 
+safety goals. The second is the importance of providing fail-safe designs:
+<P>
+<BLOCKQUOTE>The second lesson is that for complex interrupt-driven software, 
+  timing is of critical importance. In both of these situations, operator action 
+  within very narrow time-frame windows was necessary for the accidents to 
+  occur. It is unlikely that software testing will discover all possible errors 
+  that involve operator intervention at precise time frames during software 
+  operation. These machines, for example, have been exercised for thousands of 
+  hours in the factory and in the hospitals without accident. Therefore, one 
+  must provide for prevention of catastrophic results of failures when they do 
+  occur.
+  <P>I, for one, will not be surprised if other software errors appear with this 
+  or other equipment in the future.</P></BLOCKQUOTE>
+<P>Miller concluded the paper with
+<P>
+<BLOCKQUOTE>FDA has performed extensive review of the Therac-25 software and 
+  hardware safety systems. We cannot say with absolute certainty that all 
+  software problems that might result in improper dose have been found and 
+  eliminated. However, we are confident that the hardware and software safety 
+  features recently added will prevent future catastrophic consequences of 
+  failure.</BLOCKQUOTE>
+<P><B>Lessons learned</B>
+<P>
+<P>Often, it takes an accident to alert people to the dangers involved in 
+technology. A medical physicist wrote about the Therac-25 accidents:
+<P>
+<BLOCKQUOTE>In the past decade or two, the medical accelerator "industry" has 
+  become perhaps a little complacent about safety. We have assumed that the 
+  manufacturers have all kinds of safety design experience since they've been in 
+  the business a long time. We know that there are many safety codes, guides, 
+  and regulations to guide them and we have been reassured by the hitherto 
+  excellent record of these machines. Except for a few incidents in the 1960s 
+  (e.g., at Hammersmith, Hamburg) the use of medical accelerators has been 
+  remarkably free of serious radiation accidents until now. Perhaps, though, we 
+  have been spoiled by this success.[1]</BLOCKQUOTE>
+<P>Accidents are seldom simple - they usually involve a complex web of 
+interacting events with multiple contributing technical, human, and 
+organizational factors. One of the serious mistakes that led to the multiple 
+Therac-25 accidents was the tendency to believe that the cause of an accident 
+had been determined (for example, a microswitch failure in the Hamilton 
+accident) without adequate evidence to come to this conclusion and without 
+looking at all possible contributing factors. Another mistake was the assumption 
+that fixing a particular error (eliminating the current software bug) would 
+prevent future accidents. There is always another software bug.
+<P>Accidents are often blamed on a single cause like human error. But virtually 
+all factors involved in accidents can be labeled human error, except perhaps for 
+hardware wear-out failures. Even such hardware failures could be attributed to 
+human error (for example, the designer's failure to provide adequate redundancy 
+or the failure of operational personnel to properly maintain or replace parts): 
+Concluding that an accident was the result of human error is not very helpful or 
+meaningful.
+<P>It is nearly as useless to ascribe the cause of an accident to a computer 
+error or a software error. Certainly software was involved in the Therac-25 
+accidents, but it was only one contributing factor. If we assign software error 
+as the cause of the Therac-25 accidents, we are forced to conclude that the only 
+way to prevent such accidents in the future is to build perfect software that 
+will never behave in an unexpected or undesired way under any circumstances 
+(which is clearly impossible) or not to use software at all in these types of 
+systems. Both conclusions are overly pessimistic.
+<P>We must approach the problem of accidents in complex systems from a 
+system-engineering point of view and consider all possible contributing factors. 
+For the Therac-25 accidents, contributing factors included
+<P>
+<UL>
+  <LI>management inadequacies and lack of procedures for following through on 
+  all reported incidents,
+  <P></P>
+  <LI>overconfidence in the software and removal of hardware interlocks (making 
+  the software into a single point of failure that could lead to an accident),
+  <P></P>
+  <LI>presumably less-than-acceptable software-engineering practices, and
+  <P></P>
+  <LI>unrealistic risk assessments along with overconfidence in the results of 
+  these assessments.</LI></UL>
+<P>The exact same accident may not happen a second time, but if we examine and 
+try to ameliorate the contributing factors to the accidents we have had, we may 
+be able to prevent different accidents in the future. In the following sections, 
+we present what we feel are important lessons learned from the Therac-25. You 
+may draw different or additional conclusions.
+<P>
+<P><B>System engineering.</B> A common mistake in engineering, in this case and 
+many others, is to put too much confidence in software. Nonsoftware 
+professionals seem to feel that software will not or cannot fail; this attitude 
+leads to complacency and overreliance on computerized functions. Although 
+software is not subject to random wear-out failures like hardware, software 
+design errors are much harder to find and eliminate. Furthermore, hardware 
+failure modes are generally much more limited, so building protection against 
+them is usually easier. A lesson to be learned from the Therac-25 accidents is 
+not to remove standard hardware interlocks when adding computer control.
+<P>Hardware backups, interlocks, and other safety devices are currently being 
+replaced by software in many different types of systems, including commercial 
+aircraft, nuclear power plants, and weapon systems. Where the hardware 
+interlocks are still used, they are often controlled by software. Designing any 
+dangerous system in such a way that one failure can lead to an accident violates 
+basic system-engineering principles. In this respect, software needs to be 
+treated as a single component. Software should not be assigned sole 
+responsibility for safety, and systems should not be designed such that a single 
+software error or software-engineering error can be catastrophic.
+<P>A related tendency among engineers is to ignore software. The first safety 
+analysis on the Therac-25 did not include software (although nearly full 
+responsibility for safety rested on the software). When problems started 
+occurring, investigators assumed that hardware was the cause and focused only on 
+the hardware. Investigation of software's possible contribution to an accident 
+should not be the last avenue explored after all other possible explanations are 
+eliminated.
+<P>In fact, a software error can always be attributed to a transient hardware 
+failure, since software (in these types of process-control systems) reads and 
+issues commands to actuators. Without a thorough investigation (and without 
+on-line monitoring or audit trails that save internal state information), it is 
+not possible to determine whether the sensor provided the wrong information, the 
+software provided an incorrect command, or the actuator had a transient failure 
+and did the wrong thing on its own. In the Hamilton accident, a transient 
+microswitch failure was assumed to be the cause, even though the engineers were 
+unable to reproduce the failure or find anything wrong with the microswitch.
+<P>Patient reactions were the only real indications of the seriousness of the 
+problems with the Therac-25. There were no independent checks that the software 
+was operating correctly (including software checks). Such verification cannot be 
+assigned to operators without providing them with some means of detecting 
+errors. The Therac-25 software "lied" to the operators, and the machine itself 
+could not detect that a massive overdose had occurred. The Therac-25 ion 
+chambers could not handle the high density of ionization from the unscanned 
+electron beam at high-beam current; they thus became saturated and gave an 
+indication of a low dosage. Engineers need to design for the worst case.
+<P>Every company building safety-critical systems should have audit trails and 
+incident-analysis procedures that they apply whenever they find any hint of a 
+problem that might lead to an accident. The first phone call by Still should 
+have led to an extensive investigation of the events at Kennestone. Certainly, 
+learning about the first lawsuit should have triggered an immediate response. 
+Although hazard logging and tracking is required in the standards for 
+safety-critical military projects, it is less common in nonmilitary projects. 
+Every company building hazardous equipment should have hazard logging and 
+tracking as well as incident reporting and analysis as parts of its quality 
+control procedures. Such follow-up and tracking will not only help prevent 
+accidents, but will easily pay for themselves in reduced insurance rates and 
+reasonable settlement of lawsuits when they do occur.
+<P>Finally, overreliance on the numerical output of safety analyses is unwise. 
+The arguments over whether very low probabilities are meaningful with respect to 
+safety are too extensive to summarize here. But, at the least, a healthy 
+skepticism is in order. The claim that safety had been increased five orders of 
+magnitude as a result of the microswitch fix after the Hamilton accident seems 
+hard to justify. Perhaps it was based on the probability of failure of the 
+microswitch (typically 10^5) ANDed with the other interlocks. The problem with 
+all such analyses is that they exclude aspects of the problem (in this case, 
+software) that are difficult to quantify but which may have a larger impact on 
+safety than the quantifiable factors that are included.
+<P>Although management and regulatory agencies often press engineers to obtain 
+such numbers, engineers should insist that any risk assessment numbers used are 
+in fact meaningful and that statistics of this sort are treated with caution. In 
+our enthusiasm to provide measurements, we should not attempt to measure the 
+unmeasurable. William Ruckelshaus, two-time head of the US Environmental 
+Protection Agency, cautioned that "risk assessment data can be like the captured 
+spy; if you torture it long enough, it will tell you anything you want to 
+know."[7] E.A. Ryder of the British Health and Safety Executive has written that 
+the numbers game in risk assessment "should only be played in private between 
+consenting adults, as it is too easy to be misinterpreted."[8]
+<P>
+<P><A 
+href="http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Therac_5.html">next</A> 
+</P></BODY></HTML>

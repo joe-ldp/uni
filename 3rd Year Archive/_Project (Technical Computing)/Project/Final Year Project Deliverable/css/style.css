@@ -1,0 +1,13 @@
+body {
+    background-color: #008270;
+}
+
+p {
+    color: #B5EDFF;
+    font-family: 'Segoe UI';
+}
+
+canvas, video {
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 0 5px #2F4858;
+}

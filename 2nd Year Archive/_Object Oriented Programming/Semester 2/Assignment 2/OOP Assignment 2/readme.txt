@@ -1,0 +1,1 @@
+When opening the program, the ball will begin to move down towards the paddle. Control the paddle by moving the mouse side-to-side, and try to break all the blocks.

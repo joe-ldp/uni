@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Side_bar_Y.html -->
+<HTML><HEAD><TITLE>The operator interface</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY>
+<H2>The Operator Interface</H2>
+<P>
+<P>In the main text, we describe changes made as a result of an FDA recall, and 
+here we describe the operator interface of the software version used during the 
+accidents.
+<P>The Therac-25 operator controls the machine with a DEC VT100 terminal. In the 
+general case, the operator positions the patient on the treatment table, 
+manually sets the treatment field sizes and gantry rotation, and attaches 
+accessories to the machine. Leaving the treatment room, the operator returns to 
+the VT100 console to enter the patient identification, treatment prescription 
+(including mode, energy level, dose, dose rate, and time), field sizing, gantry 
+rotation, and accessory data. The system then compares the manually set values 
+with those entered at the console. If they match, a "verified" message is 
+displayed and treatment is permitted. If they do not match, treatment is not 
+allowed to proceed until the mismatch is corrected. Figure A shows the screen 
+layout.
+<P>When the system was first built, operators complained that it took too long 
+to enter the treatment plan. In response, the manufacturer modified the software 
+before the first unit was installed so that, instead of reentering the data at 
+the keyboard, operators could use a carriage return to merely copy the treatment 
+site data.[1] A quick series of carriage returns would thus complete data entry. 
+This interface modification was to figure in several accidents.
+<P>The Therac-25 could shut down in two ways after it detected an error 
+condition. One was a treatment suspend, which required a complete machine reset 
+to restart. The other, not so serious, was a treatment pause, which required 
+only a single-key command to restart the machine. If a treatment pause occurred, 
+the operator could press the "P" key to "proceed" and resume treatment quickly 
+and conveniently. The previous treatment parameters remained in effect, and no 
+reset was required. This convenient and simple feature could be invoked a 
+maximum of five times before the machine automatically suspended treatment and 
+required the operator to perform a system reset.
+<P>Error messages provided to the operator were cryptic, and some merely 
+consisted of the word "malfunction" followed by a number from 1 to 64 denoting 
+an analog/digital channel number. According to an FDA memorandum written after 
+one accident
+<P>
+<P>
+<BLOCKQUOTE>The operatorÕs manual supplied with the machine does not explain 
+  nor even address the malfunction codes. The [Maintenance] Manual lists the 
+  various malfunction numbers but gives no explanation. The materials provided 
+  give no indication that these malfunctions could place a patient at risk.
+  <P>The program does not advise the operator if a situation exists wherein the 
+  ion chambers used to monitor the patient are saturated, thus are beyond the 
+  measurement limits of the instrument. This software package does not appear to 
+  contain a safety system to prevent parameters being entered and intermixed 
+  that would result in excessive radiation being delivered to the patient under 
+  treatment.</P></BLOCKQUOTE>
+<P>An operator involved in an overdose accident testified that she had become 
+insensitive to machine malfunctions. Malfunction messages were commonplace Ñ 
+most did not involve patient safety. Service technicians would fix the problems 
+or the hospital physicist would realign the machine and make it operable again. 
+She said, "It was not out of the ordinary for something to stop the machine. . . 
+It would often give a low dose rate in which you would turn the machine back on. 
+. . They would give messages of low dose rate, V-tilt, H-tilt, and other things; 
+I canÕt remember all the reasons it would stop, but there [were] a lot of them." 
+The operator further testified that during instruction she had been taught that 
+there were "so many safety mechanisms" that she understood it was virtually 
+impossible to overdose a patient.
+<P>A radiation therapist at another clinic reported an average of 40 dose-rate 
+malfunctions, attributed to underdoses, occurred on some days.
+<P>
+<P><B>Reference</B>
+<P>1. E. Miller, "The Therac-25 Experience," <I>Proc. Conf. State Radiation 
+Control Program Directors,</I> 1987.
+<P><A 
+href="http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Side_bar_3.html">Figure A. 
+Operator Interface Screen Layout</A> </P></BODY></HTML>

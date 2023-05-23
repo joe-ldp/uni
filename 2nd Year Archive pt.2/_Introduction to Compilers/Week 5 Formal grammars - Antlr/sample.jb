@@ -1,0 +1,36 @@
+cls
+print:print "Your Age"
+[weight]
+    print
+    input "  enter your weight in pounds - 100 to 400 = ";p
+    if p<100 or p>400 then print:print " ===> weight is outside of accepted parameters":goto [weight]
+
+[height]
+    print
+    input "  enter your height in inches - 50 to 84 = ";i
+    if i<50 or i>84 then print:print " ===> height is outside of accepted parameters":goto [height]
+
+[age]
+    print
+    input "  enter your age in years     - 50 to 99 = ";a
+    if a<50 or a>99 then print:print " ===> age is outside of accepted parameters":goto [age]
+
+bmi=int(((p*703)/(i^2))+.5)
+
+x=bmi
+if bmi<19 then x=(19+(19-bmi))*1.3
+if bmi>25 then x=bmi+((bmi-25)*.6)
+
+ba=(a*.55)+x
+
+print:print "  ****  based on your age of ";a;" and BMI of ";bmi
+print:print:print "      your body's age is ";ba
+
+y=(22*(i^2)/703)
+cw=int(y*1.175)
+
+print:print:print "   per your height and BMI your weight should be ";cw
+
+print:print:print
+print "  Disclaimer: Anyone considering altering their weight should consult their physician."
+print "  This program uses the BMI formula and other calculations are my own estimates. Tom C"

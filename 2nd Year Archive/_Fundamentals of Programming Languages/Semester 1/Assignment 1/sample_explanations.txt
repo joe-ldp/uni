@@ -1,0 +1,12 @@
+The first program reads in a number, multiplies it by an approximate value of pi and prints the result.
+
+The second program reads in the user's name and then checks it against some strings using if/else if/else statements.
+Depending on what their name is, the program reacts differently. If it doesn't recognise their name, it prints "Who are you then".
+
+The third program is a very simple one that demonstrates a basic while loop which never terminates.
+
+The fourth and final program has some constant variables set storing the programmer's height in their chosen unit of measurement.
+It performs some maths to find a multiplier to greatly increase this number... then proceeds to lie about the programmer's height.
+
+The explanation video is available here:
+LINKLINKLINK

@@ -1,0 +1,33 @@
+Parts of the program:
+
+Rolling dice
+	Output-Show set of dice + show held state per die
+	Functionality-Holding dice
+	Functionality-Rerolling dice a select number of times
+
+Scoring final roll
+	Input+Output-Choosing how to score it
+	Functionality-Calculating score
+
+Be able to call both above sections repeatedly and keep track of no. of sets & scorecoard/total scores
+
+Highscores
+	Storing/saving new highscores
+		Inputting name to save alongside HS
+	Displaying highscores
+
+Saving current game
+	Store partial scorecard
+	Store current set
+
+
+
+
+Order of coding:
+
+(Done)1. Rolling dice
+(Done)2. Scoring rolls
+3. Main game logic (n sets of dice to roll; keep track of sets and scores)
+4. Highscores
+
+Code output before functionality as sample data can be used to test output, then output can be used to test functionality

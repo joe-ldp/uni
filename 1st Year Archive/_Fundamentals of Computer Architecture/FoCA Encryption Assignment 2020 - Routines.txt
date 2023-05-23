@@ -1,0 +1,461 @@
+;--------------------------------------------------------------------
+; FoCA Encryption Assignment
+; All 22 encryption routines
+; For distribution to students
+;--------------------------------------------------------------------
+
+encrypt_1:
+    push  ecx
+    movzx ecx, byte ptr[eax]
+    add   cl, 0x01
+    rol   cl, 1
+    rol   cl, 1
+    rol   cl, 1
+    rol   cl, 1
+    rol   cl, 1
+    rol   cl, 1
+    mov   edx, ecx
+    mov   byte ptr[eax], dl
+    pop   ecx
+x1: rol   cl, 1
+    dec   edx
+    jnz   x1
+    add   ecx, 0x20
+    mov   edx, ecx
+    ret
+
+;--------------------------------------------------------------------
+
+encrypt_2:
+  push  ecx
+  xor   edx, edx
+  mov   dl, byte ptr[eax]
+  and   dl, 0xF3
+  ror   dl, 1
+  ror   dl, 1
+  ror   dl, 1
+  ror   dl, 1
+  inc   dl
+  pop   ecx
+  add   ecx, edx
+  mov   byte ptr[eax], dl
+  ror   cl, 1
+  mov   edx, ecx
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_3:
+  push  edx
+  push  ecx
+  push  eax
+  movzx eax, byte ptr[eax]
+  rol   al, 1
+  not   al
+  rol   al, 1
+  rol   al, 1
+  mov   edx, eax
+  pop   eax
+  mov   byte ptr[eax], dl
+  pop   ecx
+  xor   ecx, edx
+  mov   eax, ecx
+  ror   al, 1
+  ror   al, 1
+  ror   al, 1
+  pop   edx
+  mov   edx, eax
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_4:
+  push  edi
+  push  ecx
+  not   byte ptr[eax]
+  add   byte ptr[eax], 0x04
+  movzx edi, byte ptr[eax]
+  pop   edx
+  xor   edx, edi
+  pop   edi
+  rol   dl, 1
+  rol   dl, 1
+  add   dl, 0x04
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_5:
+  push  eax
+  mov   al, byte ptr[eax]
+  push  ecx
+  and   eax, 0x7C
+  ror   eax, 1
+  not   eax
+  ror   eax, 1
+  inc   eax
+  mov   edx, eax
+  pop   ecx
+  pop   eax
+  mov   byte ptr[eax], dl
+  xor   edx, ecx
+  rol   dl, 1
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_6:
+  ror   byte ptr[eax], 1
+  ror   byte ptr[eax], 1
+  ror   byte ptr[eax], 1
+  ror   byte ptr[eax], 1
+  ror   byte ptr[eax], 1
+  push  ecx
+  not   byte ptr[eax]
+  movzx edx, byte ptr[eax]
+  pop   eax
+  xor   eax, edx
+  ror   al, 1
+  ror   al, 1
+  not   al
+  add   eax, 0x20
+  mov   edx, eax
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_7:
+  movzx edi, byte ptr[eax]
+  sub   ecx, 0x0A
+  push  ecx
+  and   byte ptr[eax], 0xAA
+  not   byte ptr[eax]
+  movzx edx, byte ptr[eax]
+  mov   eax, edi
+  or    eax, 0xAA
+  add   al, dl
+  mov   edx, eax
+  pop   eax
+  xor   edx, eax
+  rol   dl, 1
+  rol   dl, 1
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_8:
+    push  ecx
+    mov   edi, eax
+    movzx eax, byte ptr[eax]
+    and   eax, 0x3f
+    rol   al, 1
+    mov   byte ptr[edi], al
+    cmp   eax, 0x00
+    jnz   x8
+    mov   eax, 0x09
+x8: mov   edx, eax
+    pop   eax
+y8: dec   eax
+    dec   edx
+    jnz   y8
+    rol   al, 1
+    not   al
+    mov   edx, eax
+    ret
+
+;--------------------------------------------------------------------
+
+encrypt_9:
+    push  ebx
+    push  ecx
+    mov   ebx, [eax]
+    and   ebx, 0x000000FF
+    mov   edx, 05
+x9: rol   bl, 1
+    dec   edx
+    jnz   x9
+    or    ebx, 04h
+    mov   edx, ebx
+    mov   [eax], ebx
+    pop   eax
+y9: rol   al, 1
+    dec   edx
+    jnz   y9
+    mov   edx, eax
+    pop   ebx
+    ret
+
+;--------------------------------------------------------------------
+
+encrypt_10:
+  push  ecx
+  mov   ecx, [eax]
+  and   ecx, 0x000000A7
+  rol   cl, 1
+  add   ecx, 0x03
+  mov   edx, ecx
+  pop   ecx
+  add   ecx, edx
+  ror   cl, 1
+  ror   cl, 1
+  mov   [eax], edx
+  mov   eax, ecx
+  add   eax, 0x10
+  mov   edx, eax
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_11:
+  push  edx
+  push  ebx
+  push  ecx
+  and   dword ptr[eax], 0x000000FF
+  add   [eax], 0x02
+  ror   byte ptr[eax], 1
+  ror   byte ptr[eax], 1
+  mov   edx, [eax]
+  pop   ebx
+  xor   ebx, edx
+  ror   bl, 1
+  mov   eax, ebx
+  pop   ebx
+  pop   edx
+  mov   edx, eax
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_12:
+  push  edi
+  push  ecx
+  inc   [eax]
+  add   byte ptr[eax], 0x3e
+  mov   edi, [eax]
+  and   edi, 0xFF
+  pop   eax
+  xor   eax, edi
+  rol   al, 1
+  rol   al, 1
+  rol   al, 1
+  xor   eax, edi
+  mov   edx, eax
+  pop   edi
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_13:
+  push  ebx
+  push  ecx
+  mov   ebx, [eax]
+  xchg  eax, ebx
+  and   eax, 0xFF
+  ror   al, 1
+  add   eax, 0x01
+  mov   edx, eax
+  xchg  eax, ebx
+  mov   [eax], edx
+  and   edx, 0x0F
+  pop   eax
+  add   eax, edx
+  xor   edx, eax
+  pop   ebx
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_14:
+  push  ebx
+  mov   ebx, eax
+  ror   cl, 1
+  ror   cl, 1
+  ror   cl, 1
+  ror   cl, 1
+  push  ecx
+  xchg  [eax], eax
+  add   eax, 0x07
+  mov   [ebx], eax
+  mov   ebx, eax
+  pop   edx
+  xor   edx, ebx
+  ror   dl, 1
+  ror   dl, 1
+  not   dl
+  pop   ebx
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_15:
+  sub   ecx, 0x10
+  xor   ebx, ebx
+  push  ecx
+  add   dword ptr[eax], 0x2
+  push  [eax]
+  not   [eax]
+  movzx edx, byte ptr[eax]
+  pop   ebx
+  or    bl, 0x0E
+  add   bl, dl
+  mov   [eax], bl
+  pop   eax
+  xor   eax, ebx
+  neg   al
+  ror   al, 1
+  mov   edx, eax
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_16:
+    push  ebx
+    push  edx
+    push  ecx
+    movzx edx, byte ptr[eax]
+    and   edx, 0x43
+    cmp   edx, 0x00
+    jnz   x16
+    mov   edx, 0x07
+x16:inc   dl
+    mov   dword ptr[eax], edx
+    pop   ebx
+y16:dec   ebx
+    dec   edx
+    jnz   y16
+    not   bl
+    pop   edx
+    mov   edx, ebx
+    pop   ebx
+    ret
+
+;--------------------------------------------------------------------
+
+encrypt_17:
+    push  esi
+    push  ecx
+    mov   esi, eax
+    and   dword ptr[esi], 0xFF
+    ror   byte ptr[esi], 1
+    ror   byte ptr[esi], 1
+    add   byte ptr[esi], 0x01
+    mov   ecx, [esi]
+    pop   edx
+x17:ror   dl, 1
+    dec   ecx
+    jnz   x17
+    mov   eax, edx
+    add   eax, 0x20
+    xor   eax, 0xAA
+    mov   edx, eax
+    pop   esi
+    ret
+
+;--------------------------------------------------------------------
+
+encrypt_18:
+  push  ecx
+  mov   esi, eax
+  xchg  eax, [eax]
+  and   eax, 0x79
+  ror   al, 1
+  ror   al, 1
+  ror   al, 1
+  add   eax, 0x03
+  mov   edx, eax
+  pop   ecx
+  add   ecx, 0x02
+  add   ecx, edx
+  ror   cl, 1
+  mov   [esi], eax
+  mov   edx, ecx
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_19:
+  push  edx
+  push  ecx
+  push  eax
+  movzx eax, byte ptr[eax]
+  ror   al, 1
+  ror   al, 1
+  ror   al, 1
+  mov   edx, eax
+  pop   eax
+  mov   [eax], edx
+  pop   eax
+  sub   eax, 0x02
+  xor   eax, edx
+  rol   al, 1
+  not   al
+  rol   al, 1
+  rol   al, 1
+  pop   edx
+  mov   edx, eax
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_20:
+  push  [eax]
+  and   dword ptr[eax], 0x3B
+  not   byte ptr[eax]
+  mov   edx, [eax]
+  pop   eax
+  ror   al, 1
+  and   eax, 0x5F
+  xor   ecx, edx
+  xor   ecx, eax
+  rol   cl, 1
+  rol   cl, 1
+  mov   eax, ecx
+  sub   al, 0x20
+  mov   edx, eax
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_21:
+  push  ecx
+  xchg  eax, ecx
+  neg   al
+  ror   al, 1
+  xor   al, byte ptr[ecx]
+  push  edx
+  mov   edx, eax
+  xchg  eax, ecx
+  rol   byte ptr[eax], 3
+  xor   dl, byte ptr[eax]
+  rol   dl, 2
+  mov   eax, edx
+  pop   edx
+  mov   edx, eax
+  pop   ecx
+  ret
+
+;--------------------------------------------------------------------
+
+encrypt_22:
+    push  edi
+    push  ecx
+    and   byte ptr[eax], 0x0F
+    cmp   byte ptr[eax], 0x00
+    jnz   x22
+    mov   edi, 0x02
+    jmp   z22
+x22:movzx edi, byte ptr[eax]
+z22:add   byte ptr[eax], 0x0A
+    pop   eax
+y22:dec   eax
+    dec   edi
+    jnz   y22
+    not   al
+    dec   eax
+    pop   edi
+    xor   al, 0x0A
+    mov   edx, eax
+    ret
+
+
+;--------------------------------------------------------------------

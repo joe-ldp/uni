@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Side_bar_5.html -->
+<HTML><HEAD><TITLE>Safety analysis of the Therac-25</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY>
+<H2>Safety analysis of the Therac-25</H2>
+<P>The Therac-25 safety analysis included (1) failure mode and effect analysis, 
+(2) fault-tree analysis, and (3) software examination.
+<P>
+<P><B>Failure mode and effect analysis.</B> An FMEA describes the associated 
+system response to all failure modes of the individual system components, 
+considered one by one. When software was involved, AECL made no assessment of 
+the "how and why" of software faults and took any combination of software faults 
+as a single event. The latter means that if the software was the initiating 
+event, then no credit was given for the software mitigating the effects. This 
+seems like a reasonable and conservative approach to handling software faults.
+<P>
+<P><B>Fault-tree analysis.</B> An FMEA identifies single failures leading to 
+Class I hazards. To identify multiple failures and quantify the results, AECL 
+used fault-tree analysis. An FTA starts with a postulated hazard Ñ for example, 
+two of the top events for the Therac-25 are high dose per pulse and illegal 
+gantry motion. The immediate causes for the event are then generated in an 
+AND/OR tree format, using a basic understanding of the machine operation to 
+determine the causes. The tree generation continues until all branches end in 
+"basic events." Operationally, a basic event is sometimes defined as an event 
+that can be quantified (for example, a resistor fails open).
+<P>AECL used a "generic failure rate" of 10-4 per hour for software events. The 
+company justified this number as based on the historical performance of the 
+Therac-25 software. The final report on the safety analysis said that many fault 
+trees for the Therac-25 have a computer malfunction as a causative event, and 
+the outcome of quantification is therefore dependent on the failure rate chosen 
+for software.
+<P>Leaving aside the general question of whether such failure rates are 
+meaningful or measurable for software in general, it seems rather difficult to 
+justify a single figure of this sort for every type of software error or 
+software behavior. It would be equivalent to assigning the same failure rate to 
+every type of failure of a car, no matter what particular failure is considered.
+<P>The authors of the safety study did note that despite the uncertainty that 
+software introduces into quantification, fault-tree analysis provides valuable 
+information in showing single and multiple failure paths and the relative 
+importance of different failure mechanisms. This is certainly true.
+<P>
+<P><B>Software examination.</B> Because of the difficulty of quantifying 
+software behavior, AECL contracted for a detailed code inspection to "obtain 
+more information on which to base decisions." The software functions selected 
+for examination were those related to the Class I software hazards identified in 
+the FMEA: electron-beam scanning, energy selection, beam shutoff, and dose 
+calibration.
+<P>The outside consultant who performed the inspection included a detailed 
+examination of each functionÕs implementation, a search for coding errors, and a 
+qualitative assessment of its reliability. The consultant recommended program 
+changes to correct shortcomings, improve reliability, or improve the software 
+package in a general sense. The final safety report gives no information about 
+whether any particular methodology or tools were used in the software inspection 
+or whether someone just read the code looking for errors.
+<P>
+<P><B>Conclusions of the safety analysis.</B> The final report summarizes the 
+conclusions of the safety analysis:
+<P>
+<BLOCKQUOTE>The conclusions of the analysis call for 10 changes to Therac-25 
+  hardware; the most significant of these are interlocks to back up software 
+  control of both electron scanning and beam energy selection.
+  <P>Although it is not considered necessary or advisable to rewrite the entire 
+  Therac-25 software package, considerable effort is being expended to update 
+  it. The changes recommended have several distinct objectives: improve the 
+  protec-tion it provides against hardware failures; provide additional 
+  reliability via cross-checking; and provide a more maintainable source 
+  package. Two or three software releases are anticipated before these changes 
+  are completed.
+  <P>The implementation of these improvements including design and testing for 
+  both hardware and software is well under way. All hardware modifications 
+  should be completed and installed by mid 1989, with final software updates 
+  extending into late 1989 or early 1990.</P></BLOCKQUOTE>
+<P>The recommended hardware changes appear to add protection against software 
+errors, to add extra protection against hardware failures, or to increase safety 
+margins. The software conclusions included the following:
+<P>
+<BLOCKQUOTE>The software code for Beam Shut-Off, Symmetry Control, and Dose 
+  Calibration was found to be straight-forward and no execution path could be 
+  found which would cause them to perform incorrectly. A few improvements are 
+  being incor-porated, but no additional hardware interlocks are required.
+  <P>Inspection of the Scanning and Energy Selection func-tions, which are under 
+  software control, showed no improper execution paths; however, software 
+  inspection was unable to provide a high level of confidence in their 
+  reliability. This was due to the complex nature of the code, the extensive use 
+  of variables, and the time limitations of the inspection process. Due to these 
+  factors and the possible clinical consequences of a malfunction, 
+  computer-independent interlocks are being retrofitted for these two 
+cases.</P></BLOCKQUOTE>
+<P>Given the complex nature of this software design and the basic multitasking 
+design, it is difficult to understand how any part of the code could be labeled 
+"straightforward" or how confidence could be achieved that "no execution paths" 
+exist for particular types of software behavior. However, it does appear that a 
+conservative approach Ñ including computer-independent interlocks Ñ was taken in 
+most cases. Furthermore, few examples of such safety analyses of software exist 
+in the literature. One such software analysis was performed in 1989 on the 
+shutdown software of a nuclear power plant, which was written by a different 
+division of AECL.[1] Much still needs to be learned about how to perform a 
+software-safety analysis.
+<P>
+<P>
+<H3>Reference</H3>
+<P>1. W.C. Bowman et al., "An Application of Fault Tree Analysis to 
+Safety-Critical Software at Ontario Hydro," <I>Conf. Probabilistic Safety 
+Assessment and Management, </I>1991.
+<P>
+<P></P></BODY></HTML>

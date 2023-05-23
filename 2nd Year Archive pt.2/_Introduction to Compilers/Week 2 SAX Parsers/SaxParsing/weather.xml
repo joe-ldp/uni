@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<weatherweek>
+	<weatherday>
+		<day>Wednesday</day>
+		<date>2022-01-26</date>
+		<rainfall unit="percentage">10</rainfall>
+		<sunshine time="hours">8</sunshine>
+		<dawn>07:59</dawn>
+		<dusk>16:37</dusk>
+	</weatherday>
+    <weatherday>
+		<day>Thursday</day>
+		<date>2022-01-27</date>
+		<rainfall unit="percentage">24</rainfall>
+		<sunshine time="hours">8</sunshine>
+		<dawn>07:58</dawn>
+		<dusk>16:39</dusk>
+	</weatherday>
+    <weatherday>
+		<day>Friday</day>
+		<date>2022-01-28</date>
+		<rainfall unit="percentage">17</rainfall>
+		<sunshine time="hours">8</sunshine>
+		<dawn>07:57</dawn>
+		<dusk>16:41</dusk>
+	</weatherday>
+    <weatherday>
+		<day>Saturday</day>
+		<date>2022-01-29</date>
+		<rainfall unit="percentage">45</rainfall>
+		<sunshine time="hours">8</sunshine>
+		<dawn>07:55</dawn>
+		<dusk>16:43</dusk>
+	</weatherday>
+    <weatherday>
+		<day>Sunday</day>
+		<date>2022-01-30</date>
+		<rainfall unit="percentage">72</rainfall>
+		<sunshine time="hours">8</sunshine>
+		<dawn>07:53</dawn>
+		<dusk>16:45</dusk>
+	</weatherday>
+    <weatherday>
+		<day>Monday</day>
+		<date>2022-01-31</date>
+		<rainfall unit="percentage">31</rainfall>
+		<sunshine time="hours">9</sunshine>
+		<dawn>07:52</dawn>
+		<dusk>16:47</dusk>
+	</weatherday>
+    <weatherday>
+		<day>Tuesday</day>
+		<date>2022-02-01</date>
+		<rainfall unit="percentage">61</rainfall>
+		<sunshine time="hours">9</sunshine>
+		<dawn>07:50</dawn>
+		<dusk>16:49</dusk>
+	</weatherday>
+</weatherweek>

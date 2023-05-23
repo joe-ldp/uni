@@ -1,0 +1,29 @@
+enterProgram(v) ::= <<
+\<script>
+function calculator() {<\n>
+>>
+
+exitProgram(v) ::= <<
+<\n>document.getElementById('results').innerHTML = result;
+}
+\</script>
+\<input type="button" value="Calculate" onClick="calculator()" />
+\<br/>Result: \<span id="results">(click "Calculate")\</span>
+<\n>
+>>
+
+
+assignment(ident, value) ::= <<
+<if (value)>
+let <ident> = <value>
+<else>
+let <ident> =
+<endif> >>
+
+add(op1, op2) ::= "<op1> + <op2> "
+
+funchead(v, values) ::= << function <v>(<values; separator=", ">) {<\n> >>
+
+retstat(v) ::= << <\n>return <v>;<\n>}<\n> >>
+
+funcall(v, values) ::= << <v>(<values; separator=", ">) >>

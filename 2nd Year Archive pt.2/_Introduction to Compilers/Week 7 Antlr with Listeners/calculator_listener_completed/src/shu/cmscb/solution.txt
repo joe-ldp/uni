@@ -1,0 +1,47 @@
+package shu.cmscb;
+
+import calculator.CalculatorBaseListener;
+import calculator.CalculatorParser;
+import org.antlr.v4.runtime.ParserRuleContext;
+import java.util.Stack;
+
+public class Worker extends CalculatorBaseListener {
+
+    private Stack<Float> memory = new Stack<>();
+    private float answer;
+
+    public float getAnswer() {
+        return this.answer;
+    }
+
+    @Override public void enterProg(CalculatorParser.ProgContext ctx) {
+        System.out.println("enterProg");
+    }
+    @Override public void exitProg(CalculatorParser.ProgContext ctx) {
+        answer = memory.pop();
+    }
+
+    @Override
+    public void enterOperand(CalculatorParser.OperandContext ctx) {
+        if ( ctx.getChildCount()== 1 ) {
+            memory.push(Float.parseFloat(ctx.getChild(0).getText()));
+        } else {
+            String value = ctx.getChild(0) +"."+ ctx.getChild(2);
+            memory.push(Float.parseFloat(value));
+        }
+    }
+
+    @Override public void exitOperand(CalculatorParser.OperandContext ctx) {
+        System.out.println("exitOperand");
+    }
+
+    @Override public void enterAdd(CalculatorParser.AddContext ctx) {
+        System.out.println("enterAdd");
+    }
+
+    @Override public void exitAdd(CalculatorParser.AddContext ctx) {
+        Float result = memory.pop() + memory.pop();
+        memory.push(result);
+    }
+
+}

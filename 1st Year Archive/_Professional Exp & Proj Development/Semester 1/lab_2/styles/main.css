@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body
+{
+    font-family: helvetica, arial, sans-serif;
+    color: #000099;
+    background-color: #FFFFCC;
+}
+
+h1 {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #cccccc;
+    text-align: center;
+}
+
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.quals{
+ border-collapse: collapse;
+}
+.quals th{
+ border-bottom:3px solid #ccc;
+ padding:5px;
+}
+.quals td{
+ border-bottom:1px solid #ccc;
+ padding:5px;
+}

@@ -1,0 +1,23 @@
+
+
+FoCA Encryption program results (Joe Kirkup) Encryption key = 'x'
+Date: 12/03/2020  Time: 13:05:13
+
+Original string =  abcgay	Hex = 61  62  63  67  61  79  
+
+Encrypted string = bcdhbz	Hex = 62  63  64  68  62  7a  
+
+Decrypted string = Soon!	Hex = 53  6f  6f  6e  21  0  
+
+-------------------------------------------------------------
+
+FoCA Encryption program results (Joe Kirkup) Encryption key = 'x'
+Date: 19/03/2020  Time: 09:56:49
+
+Original string =  jeffbd	Hex = 6a  65  66  66  62  64  
+
+Encrypted string = {«êìël	Hex = 7b  ab  ea  ec  eb  6c  
+
+Decrypted string = Soon!	Hex = 53  6f  6f  6e  21  0  
+
+-------------------------------------------------------------

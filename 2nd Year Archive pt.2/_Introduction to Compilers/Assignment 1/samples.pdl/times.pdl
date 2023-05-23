@@ -1,0 +1,10 @@
+program multiplyTwoNumbers:
+    
+    global  number1
+
+    output( "Enter the first number: ")
+    input(number1)
+    output("result: ", number1, "\n")
+
+endprogram
+

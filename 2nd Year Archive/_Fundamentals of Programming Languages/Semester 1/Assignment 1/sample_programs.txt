@@ -1,0 +1,92 @@
+A long time ago in a galaxy far far away...
+{
+    const pi = 3.14159;
+    const coolNumbers = ["pi", "tau", "omega"];
+    
+    print "Please enter a number";
+    input myNumber;
+    
+    piNumber = myFunction(myNumber);
+    
+    print "Your cool pi multiplied number is";
+    print piNumber;
+}
+
+function myFunction(myNumber)
+{
+    newnumber = myNumber * pi;
+    return newNumber;
+}
+The End
+
+
+
+
+
+A long time ago in a galaxy far far away...
+{
+    print "Whats your name";
+    input theirName;
+    
+    if theirName == "Jeff" then
+    {
+        printThat(theirName);
+    }
+    else if theirName == "Boris" then
+    {
+        print "Ew gross";
+    }
+    else
+    {
+        print "Who are you then";
+    }
+    end if
+}
+
+function printThat(printThis)
+{
+    print printThis;
+}
+The End
+
+
+
+
+
+A long time ago in a galaxy far far away...
+{
+    while true
+    {
+        print "I feel like I've been here a while...";
+    }
+    end while 
+}
+The End
+
+
+
+
+
+A long time ago in a galaxy far far away...
+{
+    const myHeight = 1.81;
+    const myMeasurement = "metres";
+    
+    for iterator in 1, 10
+    {
+        print iterator;
+        print "Here we go again";
+    }
+    end for
+    
+    const additionOne = 1.0 + 2.5;
+    const additionTwo = additionOne + 3.4;
+    const additionThree = (additionTwo * 2.0) + additionOne;
+    
+    print "I am actually ";
+    print myHeight + additionThree;
+    print " ";
+    print myMeasurement;
+    print " tall";
+}
+The End

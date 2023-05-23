@@ -1,0 +1,57 @@
+proc getPositiveValue
+    input( positiveValue) 
+    while ( positiveValue < 0) do
+        output( "ERROR: Please enter a positive value: ") 
+        input( positiveValue) 
+    endwhile
+endproc 
+
+
+proc calculateProduct
+    set product to 0
+    set time to 1
+    while ( time <= number1) do
+        set product to ( product + number2)
+        set time to ( time + 1)
+    endwhile
+endproc 
+
+
+proc getValidRange
+    output( "Enter the low value of the range: ")
+    input( lowValue)
+    output( "Enter the high value of the range: ")
+    input( highValue)
+    if ( lowValue > highValue) then
+        call swapBoundaries
+    endif
+endproc
+
+
+proc processOption 
+    if( option = "P") then
+        call playGame
+    else
+        if( option = "B") then
+            call showBalance
+        else
+            output ("ERROR: Invalid Command!")
+        endif
+    endif
+endproc
+
+
+program multiplyTwoNumbers:
+    
+    global  number1, number2, product, time, positiveValue
+
+    output( "Enter the first number: ")
+    call getPositiveValue
+    set number1 to positiveValue
+    output( "Enter the second number: ")
+    call getPositiveValue
+    set number2 to positiveValue
+    call calculateProduct
+    output( "The product is: ", product)
+
+endprogram

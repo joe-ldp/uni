@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0062)http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Side_bar_1.html -->
+<HTML><HEAD><TITLE>Therac-25 software development and design</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY>
+<H2>Therac-25 software development and design</H2>
+<P>We know that the software for the Therac-25 was developed by a single person, 
+using PDP 11 assembly language, over a period of several years. The software 
+"evolved" from the Therac-6 software, which was started in 1972. According to a 
+letter from AECL to the FDA, the "program structure and certain subroutines were 
+carried over to the Therac 25 around 1976."
+<P>Apparently, very little software documentation was produced during 
+development. In a 1986 internal FDA memo, a reviewer lamented, "Unfortunately, 
+the AECL response also seems to point out an apparent lack of documentation on 
+software specifications and a software test plan."
+<P>The manufacturer said that the hardware and software were "tested and 
+exercised separately or together over many years." In his deposition for one of 
+the lawsuits, the quality assurance manager explained that testing was done in 
+two parts. A "small amount" of software testing was done on a simulator, but 
+most testing was done as a system. It appears that unit and software testing was 
+minimal, with most effort directed at the integrated system test. At a Therac-25 
+user group meeting, the same quality assurance manager said that the Therac-25 
+software was tested for 2,700 hours. Under questioning by the users, he 
+clarified this as meaning "2,700 hours of use."
+<P>The programmer left AECL in 1986. In a lawsuit connected with one of the 
+accidents, the lawyers were unable to obtain information about the programmer 
+from AECL. In the depositions connected with that case, none of the AECL 
+employees questioned could provide any information about his educational 
+background or experience. Although an attempt was made to obtain a deposition 
+from the programmer, the lawsuit was settled before this was accomplished. We 
+have been unable to learn anything about his background.
+<P>AECL claims proprietary rights to its software design. However, from 
+voluminous documentation regarding the accidents, the repairs, and the eventual 
+design changes, we can build a rough picture of it.
+<P>The software is responsible for monitoring the machine status, accepting 
+input about the treatment desired, and setting the machine up for this 
+treatment. It turns the beam on in response to an operator command (assuming 
+that certain operational checks on the status of the physical machine are 
+satisfied) and also turns the beam off when treatment is completed, when an 
+operator commands it, or when a malfunction is detected. The operator can print 
+out hard-copy versions of the CRT display or machine setup parameters.
+<P>The treatment unit has an interlock system designed to remove power to the 
+unit when there is a hardware malfunction. The computer monitors this interlock 
+system and provides diagnostic messages. Depending on the fault, the computer 
+either prevents a treatment from being started or, if the treatment is in 
+progress, creates a pause or a suspension of the treatment.
+<P>The manufacturer describes the Therac-25 software as having a stand-alone, 
+real-time treatment operating system. The system is not built using a standard 
+operating system or executive. Rather, the real-time executive was written 
+especially for the Therac-25 and runs on a 32K PDP 11/23. A preemptive scheduler 
+allocates cycles to the critical and noncritical tasks.
+<P>The software, written in PDP 11 assembly language, has four major components: 
+stored data, a scheduler, a set of critical and noncritical tasks, and interrupt 
+services. The stored data includes calibration parameters for the accelerator 
+setup as well as patient-treatment data. The interrupt routines include
+<P>
+<UL>
+  <LI>a clock interrupt service routine, 
+  <LI>a scanning interrupt service routine, 
+  <LI>traps (for software overflow and computer-hardware-generated interrupts), 
+  <LI>power up (initiated at power up to initialize the system and pass control 
+  to the scheduler), 
+  <LI>treatment console screen interrupt handler, 
+  <LI>treatment console keyboard interrupt handler, 
+  <LI>service printer interrupt handler, and 
+  <LI>service keyboard interrupt handler.</LI></UL>
+<P>The scheduler controls the sequences of all noninterrupt events and 
+coordinates all concurrent processes. Tasks are initiated every 0.1 second, with 
+the critical tasks executed first and the noncritical tasks executed in any 
+remaining cycle time. Critical tasks include the following:
+<P>
+<UL>
+  <LI>The treatment monitor (Treat) directs and monitors patient setup and 
+  treatment via eight operating phases. These are called as subroutines, 
+  depending on the value of the Tphase control variable. Following the execution 
+  of a particular subroutine, Treat reschedules itself. Treat interacts with the 
+  keyboard processing task, which handles operator console communication. The 
+  prescription data is cross-checked and verified by other tasks (for example, 
+  the keyboard processor and the parameter setup sensor) that inform the 
+  treatment task of the verification status via shared variables. 
+  <LI>The servo task controls gun emission, dose rate (pulse-repetition 
+  frequency), symmetry (beam steering), and machine motions. The servo task also 
+  sets up the machine parameters and monitors the beam-tilt-error and the 
+  flatness-error interlocks. 
+  <LI>The housekeeper task takes care of system-status interlocks and limit 
+  checks, and puts appropriate messages on the CRT display. It decodes some 
+  information and checks the setup verification.</LI></UL>
+<P>Noncritical tasks include
+<P>
+<UL>
+  <LI>Check sum processor (scheduled to run periodically). 
+  <LI>Treatment console keyboard processor (scheduled to run only if it is 
+  called by other tasks or by keyboard interrupts). This task acts as the 
+  interface between the software and the operator. 
+  <LI>Treatment console screen processor (run periodically). This task lays out 
+  appropriate record formats for either displays or hard copies. 
+  <LI>Service keyboard processor (run on demand). This task arbitrates 
+  non-treatment-related communication between the therapy system and the 
+  operator. 
+  <LI>Snapshot (run periodically by the scheduler). Snapshot captures 
+  preselected parameter values and is called by the treatment task at the end of 
+  a treatment. 
+  <LI>Hand-control processor (run periodically). 
+  <LI>Calibration processor. This task is responsible for a package of tasks 
+  that let the operator examine and change system setup parameters and interlock 
+  limits.</LI></UL>
+<P>It is clear from the AECL documentation on the modifications that the 
+software allows concurrent access to shared memory, that there is no real 
+synchronization aside from data stored in shared variables, and that the "test" 
+and "set" for such variables are not indivisible operations. Race conditions 
+resulting from this implementation of multitasking played an important part in 
+the accidents.
+<P>
+<P></P></BODY></HTML>

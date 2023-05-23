@@ -1,0 +1,91 @@
+enterProgram(v) ::= <<
+\<script>
+function pdlProgram() {
+document.getElementById("output").innerHTML = ""<\n>
+>>
+
+exitProgram(v) ::= <<
+}
+\</script>
+\<input type="button" value="Execute Program" onClick="pdlProgram()" />
+\<br/>Result: \<span id="output">(click "Execute Program")\</span><\n>
+>>
+
+globals(ident) ::= <<
+var <ident>;<\n>
+>>
+
+enterProcDefun(ident) ::= <<
+function <ident>() {<\n>
+>>
+
+exitProcDefun(v) ::= <<
+}<\n>
+>>
+
+exitBlock(v) ::= <<
+<\n>
+>>
+
+comparator(comparator) ::= <<
+ <comparator>
+>>
+
+math(math) ::= <<
+ <math>
+>>
+
+outputStatement(string, idents) ::= <<
+<if (idents)>
+document.getElementById("output").innerHTML += ("<string>" + <idents; separator=" + "> + "\n");<\n>
+<else>
+document.getElementById("output").innerHTML += "<string>\n";<\n>
+<endif>
+>>
+
+inputStatement(ident) ::= <<
+let <ident> = window.prompt("Enter a value for <ident>");<\n>
+>>
+
+procedureCall(ident, args) ::= <<
+<if (args)>
+<ident>(<args; separator=", ">);<\n>
+<else>
+<ident>();<\n>
+<endif>
+>>
+
+expr(ident, math, value) ::= <<
+<if (math)>
+(<ident> <math> <value>)
+<else>
+(<ident>)
+<endif>
+>>
+
+assignment(ident, expr) ::= <<
+let <ident> = <expr>;<\n>
+>>
+
+enterWhileLoop(ident, comparator, value) ::= <<
+while(<ident> <comparator> <value>) {<\n>
+>>
+
+exitWhileLoop(v) ::= <<
+}<\n>
+>>
+
+enterIfElse(ident, comparator, value, ifBlocks, elseBlocks) ::= <<
+if (<ident> <comparator> <value>) {
+    <ifBlocks; separator=";\n">;<\n>
+} else {
+    <elseBlocks; separator=";\n">;<\n>
+>>
+
+exitIfElse(v) ::= <<
+}<\n>
+>>
+
+value(value) ::= <<
+<value>
+>>

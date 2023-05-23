@@ -1,0 +1,15 @@
+program multiplyTwoNumbers:
+    
+    global option
+
+    if( option = "P") then
+        output("P")
+    else
+        if( option = "B") then
+            output("B")
+        else
+            output ("ERROR: Invalid Command!")
+        endif
+    endif
+
+endprogram

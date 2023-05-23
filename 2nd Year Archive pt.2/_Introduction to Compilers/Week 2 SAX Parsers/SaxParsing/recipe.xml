@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="recipe.xsl"?>
+
+<!DOCTYPE cookbook [
+<!ELEMENT cookbook (category+)>
+<!ELEMENT category (title+, recipe+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT recipe (name, ingredient+, cooking*, serves?, method)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT ingredient (quantity*, name)>
+<!ELEMENT quantity (#PCDATA)>
+<!ATTLIST quantity 
+	amount CDATA #REQUIRED
+	unit CDATA "g">
+<!ELEMENT unit (#PCDATA)>
+<!ELEMENT amount (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT cooking (note+)>
+<!ELEMENT note (#PCDATA)>
+<!ELEMENT serves (#PCDATA)>
+<!ELEMENT method (instruction+)>
+<!ELEMENT instruction (#PCDATA)>
+]>
+
+<cookbook>
+	<category>
+		<title>bread</title>
+		<recipe>  
+			<name>The Basic Loaf</name>
+			<ingredient>
+				<quantity amount="825" unit="ml" />
+				<name>Warm water</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="20" unit="g" /> 
+				<name>Granulated Dried Yeast</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="20" />
+				<name>Sugar</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="450" />
+				<name>Stoneground wholemeal flour</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="900" />
+				<name>Strong white bread flour</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="20" />
+				<name>Salt</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="55" />
+				<name>Fresh Lard</name>
+			</ingredient>
+			<cooking>
+				<note>Bake at gas number 8 for 15 minutes</note>
+				<note>Bake at 230c for 15 minutes</note>
+			</cooking>
+			<method>
+			<instruction>Add the yeast and sugar to the warm water and leave to activate</instruction>
+			<instruction>Sieve the flour and salt into a large bowl</instruction>
+			<instruction>Crumble the lard into the flour until it has a &quot;breadcrumb&quot; texture</instruction>
+			<instruction>Mix the liquid into the flour</instruction>
+			<instruction>Turn onto floured surface and knead for 300 strokes</instruction>
+			<instruction>Form into a ball, place in a warm place until doubled in size</instruction>
+     <instruction>Knead for another 100 strokes</instruction>
+			<instruction>Form into a ball, place in a warm place until doubled in size</instruction>
+			<instruction>Form into five loaves and leave to rise for 30 minutes</instruction>
+			<instruction>Bake!</instruction>
+			</method>
+		</recipe>
+
+		<recipe>
+			<name>Sussex Gypsy Bread</name>
+			<ingredient>
+				<quantity amount="250" unit="g" />
+				<quantity amount="10" unit="oz" />
+				<name>Self Raising Flour</name>
+			</ingredient>
+			<ingredient>
+				<name>Pinch Of Salt</name>
+			</ingredient>
+			<ingredient>
+				<name>Pinch Of Mixed Spice</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="0.5" unit="teaspoon"/>				
+				<quantity amount="2.5" unit="ml"/>
+				<name>Ground Ginger</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="100" unit="g"/>
+				<quantity amount="4" unit="oz" />
+				<name>Soft Brown Sugar</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="150" unit="g" />
+				<quantity amount="6" unit="oz" />
+				<name>Sultanas</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="2" unit="oz" />
+				<quantity amount="50" />
+				<name>Chopped Peel</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="150" />
+				<quantity amount="6" unit="oz" />
+				<name>Treacle</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="1" unit="table spoon" />
+				<quantity amount="15" unit="ml" />
+				<name>Milk</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="1" />
+				<name>Egg</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="0.5" unit="teaspoon" />
+				<quantity amount="2.5" unit="ml" />
+				<name>Bicarbonate Of Soda</name>
+			</ingredient>
+			<cooking>
+				<note>Preheat oven to 180C/350F/Gas 4.</note>
+			</cooking>
+			<method>
+				<instruction>Mix together flour, salt, spice, sugar and fruit in bowl.</instruction>
+				<instruction>Warm treacle and milk in a pan, do not boil, remove from heat, add egg and whisk well.</instruction>
+				<instruction>Dissolve the bicarbonate of soda in a little water and add with the treacle to the dry ingredients in the bowl.</instruction>
+				<instruction>Mix well and pour into a greased 1 kilo/2lb loaf tin.</instruction>
+				<instruction>Bake for 45 minutes, then reduce heat to 160C/325F/Gas 3 and cook for a further 30 minutes.</instruction>
+			</method>
+		</recipe>
+
+		<recipe>
+			<name>Buns For Fun</name>
+			<ingredient>
+				<quantity amount="3" unit="oz" />
+				<quantity amount="80" />
+				<name>Butter</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="300" unit="ml" />
+				<quantity amount="10" unit="fl oz" />
+				<name>Milk</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="55" />
+				<quantity amount="2" unit="oz" />
+				<name>Fresh Yeast</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="25" />
+				<quantity amount="1" unit="oz" />
+				<name>Dried Yeast</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="80" />
+				<quantity amount="3" unit="oz" />
+				<name>Caster Sugar</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="7.5" unit="ml" />
+				<quantity amount="1.5" unit="teaspoon" />
+				<name>Ground Cardamom</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="2.5" unit="ml" />
+				<quantity amount="0.5" unit="teaspoon" />
+				<name>Salt</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="800" />
+				<quantity amount="1.25" unit="lb" />
+				<name>Strong White Flour</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="25" />
+				<quantity amount="1" unit="oz" />
+				<name>Raisins</name>
+			</ingredient>
+			<ingredient>
+				<quantity amount="1" />
+				<name>Egg</name>
+			</ingredient>
+			<cooking>
+				<note>Preheat the oven to 225C/425F/Gas 7.</note>
+			</cooking>
+			<method>
+				<instruction>Melt the butter in a small saucepan. Add the milk and heat until the liquid is lukewarm (at body temperature).</instruction>
+				<instruction>Mix together the sugar, ground cardamom, salt, yeast and flour in a bowl.</instruction>
+				<instruction>If you are using fresh yeast, stir it into the milk until it dissolves. If using dried yeast, mix it with the flour mixture.</instruction>
+				<instruction>Pour the milk mixture into the flour mixture, mix well or use your hands to knead the dough until it is smooth and firm.</instruction>
+				<instruction>Sprinkle a little flour over the top and cover the bowl with plastic wrap. Put the bowl in a warm place for approximately 1 hour. The dough should rise to about twice the size.</instruction>
+				<instruction>Put a few raisins into each lump of dough and roll it into a ball. Make different shaped buns, decorating with more raisins. Put the finished shapes onto a greased baking sheet. Let the buns rise for about 20 minutes.</instruction>
+				<instruction>Brush the buns with egg or a little milk and place them in the centre of the oven for about 10-15 minutes, until they are golden brown. Cool on a rack and serve.</instruction>
+			</method>
+		</recipe>
+	</category>
+
+	<category>
+		<title>meat</title>
+		<recipe>  
+			<name>The Meat Loaf</name>
+		</recipe>
+	</category>
+</cookbook>
+

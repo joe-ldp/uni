@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0060)http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Therac_5.html -->
+<HTML><HEAD><TITLE>Therac-25 - V</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2716.2200" name=GENERATOR></HEAD>
+<BODY>
+<H1>An Investigation of the Therac-25 Accidents -- Part V</H1>
+<H3>Nancy Leveson, University of Washington<BR>Clark S. Turner, University of 
+California, Irvine</H3>
+<P>Reprinted with permission, <I>IEEE Computer</I>, Vol. 26, No. 7, July 1993, 
+pp. 18-41. 
+<P><B>Software engineering.</B> The Therac-25 accidents were fairly unique in 
+having software coding errors involved -- most computer-related accidents have 
+not involved coding errors but rather errors in the software requirements such 
+as omissions and mishandled environmental conditions and system states. Although 
+using good basic software-engineering practices will not prevent all software 
+errors, it is certainly required as a minimum. Some companies introducing 
+software into their systems for the first time do not take software engineering 
+as seriously as they should. Basic software-engineering principles that 
+apparently were violated with the Therac-25 include:
+<P>
+<UL>
+  <LI>Documentation should not be an afterthought.
+  <P></P>
+  <LI>Software quality assurance practices and standards should be established.
+  <P></P>
+  <LI>Designs should be kept simple.
+  <P></P>
+  <LI>Ways to get information about errors -- for example, software audit trails 
+  -- should be designed into the software from the beginning.
+  <P></P>
+  <LI>The software should be subjected to extensive testing and formal analysis 
+  at the module and software level; system testing alone is not 
+adequate.</LI></UL>
+<P>In addition, special safety-analysis and design procedures must be 
+incorporated into safety-critical software projects. Safety must be built into 
+software, and, in addition, safety must be assured at the system level despite 
+software errors.[9,10] The Therac-20 contained the same software error 
+implicated in the Tyler deaths, but the machine included hardware interlocks 
+that mitigated its consequences. Protection against software errors can also be 
+built into the software itself.
+<P>Furthermore, important lessons about software reuse can be found here. A 
+naive assumption is often made that reusing software or using commercial 
+off-the-shelf software increases safety because the software has been exercised 
+extensively. Reusing software modules does not guarantee safety in the new 
+system to which they are transferred and sometimes leads to awkward and 
+dangerous designs. Safety is a quality of the system in which the software is 
+used; it is not a quality of the software itself. Rewriting the entire software 
+to get a clean and simple design may be safer in many cases.
+<P>Taking a couple of programming courses or programming a home computer does 
+not qualify anyone to produce safety-critical software. Although certification 
+of software engineers is not yet required, more events like those associated 
+with the Therac-25 will make such certification inevitable. There is activity in 
+Britain to specify required courses for those working on critical software. Any 
+engineer is not automatically qualified to be a software engineer -- an 
+extensive program of study and experience is required. Safety-critical software 
+engineering requires training and experience in addition to that required for 
+noncritical software.
+<P>Although the user interface of the Therac-25 has attracted a lot of 
+attention, it was really a side issue in the accidents. Certainly, it could have 
+been improved, like many other aspects of this software. Either software 
+engineers need better training in interface design, or more input is needed from 
+human factors engineers. There also needs to be greater recognition of potential 
+conflicts between user-friendly interfaces and safety. One goal of interface 
+design is to make the interface as easy as possible for the operator to use. But 
+in the Therac-25, some design features (for example, not requiring the operator 
+to reenter patient prescriptions after mistakes) and later changes (allowing a 
+carriage return to indicate that information has been entered correctly) 
+enhanced usability at the expense of safety.
+<P>Finally, not only must safety be considered in the initial design of the 
+software and it operator interface, but the reasons for design decisions should 
+be recorded so that decisions are not inadvertently undone in future 
+modifications.
+<P>
+<P><B>User and government oversight and standards.</B> Once the FDA got involved 
+in the Therac-25, their response was impressive, especially considering how 
+little experience they had with similar problems in computerized medical 
+devices. Since the Therac-25 events, the FDA has moved to improve the reporting 
+system and to augment their procedures and guidelines to include software. The 
+problem of deciding when to forbid the use of medical devices that are also 
+saving lives has no simple answer and involves ethical and political issues that 
+cannot be answered by science or engineering alone. However, at the least, 
+better procedures are certainly required for reporting problems to the FDA and 
+to users.
+<P>The issues involved in regulation of risky technology are complex. Overly 
+strict standards can inhibit progress, require techniques behind the state of 
+the art, and transfer responsibility from the manufacturer to the government. 
+The fixing of responsibility requires a delicate balance. Someone must represent 
+the public's needs, which may be subsumed by a company's desire for profits. On 
+the other hand, standards can have the undesirable effect of limiting the safety 
+efforts and investment of companies that feel their legal and moral 
+responsibilities are fulfilled if they follow the standards.
+<P>Some of the most effective standards and efforts for safety come from users. 
+Manufacturers have more incentive to satisfy customers than to satisfy 
+government agencies. The American Association of Physicists in Medicine 
+established a task group to work on problems associated with computers in 
+radiation therapy in 1979, long before the Therac-25 problems began. The 
+accidents intensified these efforts, and the association is developing 
+user-written standards. A report by J.A. Rawlinson of the Ontario Cancer 
+Institute attempted to define the physicist's role in assuring adequate safety 
+in medical accelerators:
+<P>
+<BLOCKQUOTE>We could continue our traditional role, which has been to provide 
+  input to the manufacturer on safety issues but to leave the major safety 
+  design decisions to the manufacturer. We can provide this input through a 
+  number of mechanisms. . . These include participation in standards 
+  organizations such as the IEC [Interna-tional Electrotechnical Commission], in 
+  professional association groups . . . and in accelerator user groups such as 
+  the Therac-25 user group. It includes also making use of the Problem Reporting 
+  Program for Radiation Therapy Devices . . . and it includes consultation in 
+  the drafting of the government safety regulations. Each of these if pursued 
+  vigorously will go a long way to improving safety. It is debatable however 
+  whether these actions would be sufficient to prevent a future series of 
+  accidents.
+  <P>Perhaps what is needed in addition is a mechanism by which the safety of 
+  any new model of accelerator is assessed independently of the manufacturer. 
+  This task could be done by the individual physicist at the time of acceptance 
+  of a new machine. Indeed many users already test at least the operation of 
+  safety interlocks during commissioning. Few however have the time or resources 
+  to conduct a comprehensive assessment of safety design.
+  <P>A more effective approach might be to require that prior to the use of a 
+  new type of accelerator in a particular jurisdiction, an independent safety 
+  analysis is made by a panel (including but not limited to medical physicists). 
+  Such a panel could be established within or without a regulatory 
+  framework.[1]</P></BLOCKQUOTE>
+<P>It is clear that users need to be involved. It was users who found the 
+problems with the Therac-25 and forced AECL to respond. The process of fixing 
+the Therac-25 was user driven -- the manufacturer was slow to respond. The 
+Therac-25 user group meetings were, according to participants, important to the 
+resolution of the problems. But if users are to be involved, then they must be 
+provided with information and the ability to perform this function. 
+Manufacturers need to understand that the adversarial approach and the attempt 
+to keep government agencies and users in the dark about problems will not be to 
+their benefit in the long run.
+<P>The US Air Force has one of the most extensive programs to inform users. 
+Contractors who build space systems for the Air Force must provide an Accident 
+Risk Assessment Report (AFAR) to system users and operators that describes the 
+hazardous subsystems and operations associated with that system and its 
+interfaces. The AFAR also comprehensively identifies and evaluates the system's 
+accident risks; provides a means of substantiating compliance with safety 
+requirements; summarizes all system-safety analyses and testing performed on 
+each system and subsystem; and identifies design and operating limits to be 
+imposed on system components to preclude or minimize accidents that could cause 
+injury or damage.
+<P>An interesting requirement in the Air Force AFAR is a record of all 
+safety-related failures or accidents associated with system acceptance, test, 
+and checkout, along with an assessment of the impact on flight and ground safety 
+and action taken to prevent recurrence. The AFAR also must address failures, 
+accidents, or incidents from previous missions of this system or other systems 
+using similar hardware. All corrective action taken to prevent recurrence must 
+be documented. The accident and correction history must be updated throughout 
+the life of the system. If any design or operating parameters change after 
+government approval, the AFAR must be updated to include all changes affecting 
+safety.
+<P>Unfortunately, the Air Force program is not practical for commercial systems. 
+However, government agencies might require manufacturers to provide similar 
+information to users. If required for everyone, competitive pressures to 
+withhold information might be lessened. Manufacturers might find that providing 
+such information actually increases customer loyalty and confidence. An emphasis 
+on safety can be turned into a competitive advantage.
+<P>
+<P>Most previous accounts of the Therac-25 accidents blamed them on a software 
+error and stopped there. This is not very useful and, in fact, can be misleading 
+and dangerous: If we are to prevent such accidents in the future, we must dig 
+deeper. Most accidents involving complex technology are caused by a combination 
+of organizational, managerial, technical, and, sometimes, sociological or 
+political factors. Preventing accidents requires paying attention to <I>all</I> 
+the root causes, not just the precipitating event in a particular circumstance.
+<P>Accidents are unlikely to occur in exactly the same way again. If we patch 
+only the symptoms and ignore the deeper underlying causes or we fix only the 
+specific cause of one accident, we are unlikely to prevent or mitigate future 
+accidents. The series of accidents involving the Therac-25 is a good example of 
+exactly this problem: Fixing each individual software flaw as it was found did 
+not solve the device's safety problems. Virtually all complex software will 
+behave in an unexpected or undesired fashion under some conditions -- there will 
+always be another bug. Instead, accidents must be understood with respect to the 
+complex factors involved. In addition, changes need to be made to eliminate or 
+reduce the underlying causes and contributing factors that increase the 
+likelihood of accidents or loss resulting from them.
+<P>Although these accidents occurred in software controlling medical devices, 
+the lessons apply to all types of systems where computers control dangerous 
+devices. In our experience, the same types of mistakes are being made in 
+nonmedical systems. We must learn from our mistakes so we do not repeat them. 
+<P>
+<P>
+<H3>Acknowledgments</H3>
+<P>Ed Miller of the FDA was especially helpful, both in providing information to 
+be included in this article and in reviewing and commenting on the final 
+version. Gordon Symonds of the Canadian Government Health Protection Branch also 
+reviewed and commented on a draft of the article. Finally, the referees, several 
+of whom were apparently intimately involved in some of the accidents, were also 
+very helpful in providing additional information about the accidents.
+<P>
+<P>
+<H3>References</H3>
+<P>The information in this article was gathered from official FDA documents and 
+internal memos, lawsuit depositions, letters, and various other sources that are 
+not publicly available. Computer does not provide references to documents that 
+are unavailable to the public.
+<P>
+<P>1. J.A. Rawlinson, "Report on the Therac-25," OCTRF/OCI Physicists Meeting, 
+Kingston, Ont., Canada, May 7, 1987.
+<P>
+<P>2. F. Houston, "What Do the Simple Folk Do?: Software Safety in the Cottage 
+Industry," IEEE Computers in Medicine Conf., 1985.
+<P>
+<P>3. C.A. Bowsher, "Medical Devices: The Public Health at Risk," US Gov't 
+Accounting Office Report GAO/T-PEMD-90-2, 046987/139922, 1990.
+<P>
+<P>4. M. Kivel, ed., Radiological Health Bulletin, Vol. XX, No. 8, US Federal 
+Food and Drug Administration, Dec. 1986.
+<P>
+<P>5. Medical Device Recalls, Examination of Selected Cases, GAO/PEMD-90-6, 
+1989.
+<P>
+<P>6. E. Miller, "The Therac-25 Experience," Proc. Conf. State Radiation Control 
+Program Directors, 1987. 
+<P>
+<P>7. W.D. Ruckelshaus, "Risk in a Free Society," Risk Analysis, Vol. 4, No. 3, 
+1984, pp. 157-162.
+<P>
+<P>8. E.A. Ryder, "The Control of Major Hazards: The Advisory Committee's Third 
+and Final Report," Transcript of Conf. European Major Hazards, Oyez Scientific 
+and Technical Services and Authors, London, 1984.
+<P>
+<P>9. N.G. Leveson, "Software Safety: Why, What, and How," ACM Computing 
+Surveys, Vol. 18, No. 2, June 1986, pp. 25-69.
+<P>
+<P>10. N.G. Leveson, "Software Safety in Embedded Computer Systems," Comm. ACM, 
+Feb. 1991, pp. 34-46.
+<P>
+<P><IMG src="Therac-25 - V_files/Leveson.small.gif"> Nancy G. Leveson is Boeing 
+professor of Computer Science and Engineering at the University of Washington. 
+Previously, she was a professor in the Information and Computer Science 
+Department at the University of California, Irvine. Her research interests are 
+software safety and reliability, including software hazard analysis, 
+requirements specification and analysis, design for safety, and verification of 
+safety. She consults worldwide for industry and government on safety-critical 
+systems.
+<P>Leveson received a BA in mathematics, an MS in operations research, and a PhD 
+in computer science, all from the University of California at Los Angeles. She 
+is the editor in chief of <I>IEEE Transactions on Software Engineering</I> and a 
+member of the board of directors of the Computing Research Association.
+<P>
+<P><IMG src="Therac-25 - V_files/Turner.small.gif"> Clark S. Turner is seeking 
+his PhD in the Information and Computer Science Department at the University of 
+California, Irvine, studying under Nancy Leveson. He is also an attorney 
+admitted to practice in California, New York, and Massachusetts. His interests 
+include risk analysis of safety-critical software systems and legal liability 
+issues involving unsafe software systems.
+<P>Turner received a BS in mathematics from King's College in Pennsylvania, an 
+MA in mathematics from Pennsylvania State University, a JD from the University 
+of Maine, and an MS in computer science from the University of California, 
+Irvine.
+<P>
+<P>
+<P>Readers can contact Leveson at the Department of Computer Science and 
+Engineering, FR-35, University of Washington, Seattle, WA 98195, e-mail 
+leveson@cs.washington.edu; or Turner at the Information and Computer Science 
+Department, University of California, Irvine, Irvine, CA 92717, e-mail 
+turner@ics.uci.edu.
+<P>
+<P></P></BODY></HTML>

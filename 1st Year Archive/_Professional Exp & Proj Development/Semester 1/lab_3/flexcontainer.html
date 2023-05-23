@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .flex-container {
+            display: flex;
+            width: 100%;
+            border: 1px solid #000;
+            margin: auto;
+            justify-content: space-between;
+        }
+        .text{
+            display:none;
+        }
+        img {
+            display: none;
+        }
+        .item{
+            flex:1 1 33%;
+            padding:10px;
+        }
+        /*.left-col, .right-col{
+            flex-grow: 1;
+        }*/
+        /*.middle-col{
+            flex-grow: 4;
+        }*/
+    </style>
+</head>
+
+<body>
+
+    <div class="flex-container">
+        <div class="item left-col">
+            <h2>Flex Item One</h2>
+            <p><img src="images/300x200.jpg" alt="Three Hundred pixels wide"></p>
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+        </div>
+        <div class="item middle-col">
+            <h2>Flex Item Two</h2>
+            <p><img src="images/300x200.jpg" alt="Three Hundred pixels wide"></p>
+            <div class="text">
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+                    eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.</p>
+                <p>qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
+                    incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+            </div>
+        </div>
+        <div class="item right-col">
+            <h2>Flex Item Three</h2>
+            <p><img src="images/300x200.jpg" alt="Three Hundred pixels wide"></p>
+            <div class="text">
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti
+                    atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
+                    sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
